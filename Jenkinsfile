@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git url: 'https://github.com/yourusername/my-ci-cd-app.git'
+        git url: 'https://github.com/hashemshibli/ci-cd-app.git'
       }
     }
 
@@ -36,7 +36,7 @@ pipeline {
     stage('Deploy to Test') {
       steps {
         echo 'Deploying to test environment...'
-        // Example test deploy logic
+
         sh 'echo Deploy to test complete'
       }
     }
