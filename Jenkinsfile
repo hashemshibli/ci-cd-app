@@ -26,24 +26,6 @@ pipeline {
       }
     }
 
-   stage('Setup') {
-      steps {
-                sh '''
-                if ! command -v zip &> /dev/null; then
-                    echo "Installing zip..."
-                    apt-get update && apt-get install zip -y
-                fi
-                '''
-      }
-    }
-	
-    stage('Package') {
-      steps {
-        echo 'Packaging the application...'
-        sh 'zip -r ${APP_NAME}.zip .'
-      }
-    }
-
     stage('Deploy to Test') {
       steps {
         echo 'Deploying to test environment...'
