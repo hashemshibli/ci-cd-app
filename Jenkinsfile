@@ -26,6 +26,17 @@ pipeline {
       }
     }
 
+   stage('Setup') {
+      steps {
+                sh '''
+                if ! command -v zip &> /dev/null; then
+                    echo "Installing zip..."
+                    sudo apt-get update && sudo apt-get install zip -y
+                fi
+                '''
+      }
+    }
+	
     stage('Package') {
       steps {
         echo 'Packaging the application...'
